@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Listable</string>
+    <string name="mainButtonText">Notify</string>
+
+    <string name="list_item_notification_title_template">List item: %1$s</string>
+
+    <!-- TODO: remove this placeholder text -->
+    <string name="list_item_notification_placeholder_text_template">%1$s</string>
+
+    <string name="action_paste">Paste</string>
+</resources>
