@@ -13,6 +13,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
+import java.util.List;
+
 /**
  * Helper class for showing and canceling list item
  * notifications.
@@ -97,10 +99,10 @@ public class ListItemNotification {
                 // Set the pending intent to be initiated when the user touches
                 // the notification.
                 .setContentIntent(
-                        PendingIntent.getActivity(
+                        PendingIntent.getService(
                                 context,
                                 0,
-                                new Intent(context, MainActivity.class)
+                                new Intent(context, ListNavigatorService.class)
                                         .putExtra(Intent.EXTRA_TEXT, message),
                                 PendingIntent.FLAG_UPDATE_CURRENT))
 
@@ -121,11 +123,11 @@ public class ListItemNotification {
 
                 .addAction(
                         R.drawable.ic_action_stat_share,
-                        res.getString(R.string.action_paste),
+                        res.getString(R.string.action_fill),
                         PendingIntent.getService(
                                 context,
                                 0,
-                                new Intent(context, CopyMessageService.class)
+                                new Intent(context, ListNavigatorService.class)
                                         .putExtra(Intent.EXTRA_TEXT, message),
                                 PendingIntent.FLAG_UPDATE_CURRENT))
                 /*

@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+@RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,14 +19,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startService(new Intent(this, CopyMessageService.class));
+        Intent startListNavigator = new Intent(this, ListNavigatorService.class);
+        startListNavigator.putExtra(Intent.EXTRA_TEXT,
+                "Item1" +System.lineSeparator() +
+                "Item2" + System.lineSeparator() +
+                "Item3" + System.lineSeparator() +
+                "Item4" + System.lineSeparator() +
+                "Item5");
+        startService(startListNavigator);
 
         GetIntent();
     }
 
     public void showNotification(View view)
     {
-        notify("Start");
+        notify("1");
     }
 
     private void notify(String text)
@@ -47,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 handleSendText(intent); // Handle text being sent
             }
         }
-        else if (intent.hasExtra(Intent.EXTRA_TEXT)) {
-            String text= intent.getStringExtra(Intent.EXTRA_TEXT);
-            PasterService.SetItem(text);
-            //ClipboardManager cm = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-            //cm.setPrimaryClip(ClipData.newPlainText("", text));
-
-            //notify(intent.getStringExtra(Intent.EXTRA_TEXT));
-        }
         else {
             // Handle other intents, such as being started from the home screen
         }
@@ -66,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
             // Update UI to reflect text being shared
             TextView tv = (TextView)this.findViewById(R.id.textView);
             tv.setText(sharedText);
+            Intent startListNavigator = new Intent(this, ListNavigatorService.class);
+            startListNavigator.putExtra(Intent.EXTRA_TEXT,
+                    sharedText);
+            startService(startListNavigator);
+
+
         }
     }
 }
