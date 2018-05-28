@@ -18,3 +18,5 @@ Initial implementation idea
   [ View List ] - show a list of the items with some indication of whether items were done or not, to help synchronize completed state with original app.  
   [ Restart Skipped ] - Go back to the first item that was skipped.
 
+
+Thanks to @PhilippC for the accessibility service code I borrowed from https://github.com/PhilippC/kp2a_accservice_autofill that is enabling the Fill feature!
