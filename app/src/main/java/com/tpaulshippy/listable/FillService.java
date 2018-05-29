@@ -1,4 +1,4 @@
-package com.example.tpaul.myapplication;
+package com.tpaulshippy.listable;
 
 import android.accessibilityservice.AccessibilityService;
 import android.content.BroadcastReceiver;

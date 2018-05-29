@@ -1,4 +1,4 @@
-package com.example.tpaul.myapplication;
+package com.tpaulshippy.listable;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.tpaul.myapplication", appContext.getPackageName());
+        assertEquals("com.tpaulshippy.listable", appContext.getPackageName());
     }
 }

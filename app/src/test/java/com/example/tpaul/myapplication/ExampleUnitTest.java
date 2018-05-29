@@ -1,4 +1,4 @@
-package com.example.tpaul.myapplication;
+package com.tpaulshippy.listable;
 
 import org.junit.Test;
 
