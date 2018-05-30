@@ -104,11 +104,10 @@ public class FillService extends AccessibilityService {
 
     private void handleAccessibilityEvent(AccessibilityEvent event) {
         try {
-            android.util.Log.d(_logTag, "currentItem: " + currentItem);
-
             if (currentItem == "")
                 return;
 
+            android.util.Log.d(_logTag, "currentItem: " + currentItem);
             android.util.Log.d(_logTag, "event: " + event.getEventType());
 
             //if (event.getEventType() == AccessibilityEvent.TYPE_VIEW_FOCUSED) {
@@ -141,6 +140,7 @@ public class FillService extends AccessibilityService {
                     }
 
                     fillDataInTextField(firstEdit, currentItem);
+                    currentItem = ""; // clear static data so that it doesn't fill the next textbox found
                 }
 
             }
