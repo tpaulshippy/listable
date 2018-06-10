@@ -39,10 +39,9 @@ public class ListNavigatorService extends Service {
 
             String text = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-            if (text.contains(System.lineSeparator())) {
-                SetItems(text);
-                _currentIndex = 0;
-            }
+            _items = GetItems(text);
+            _currentIndex = 0;
+
             if (_items.size() > 0) {
                 if (_items.size() > _currentIndex) {
                     String currentItem = _items.get(_currentIndex);
@@ -65,8 +64,16 @@ public class ListNavigatorService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-    private void SetItems(String text) {
-        _items = new ArrayList<String>(Arrays.asList(text.split(System.lineSeparator())));
+    public static ArrayList GetItems(String text) {
+        ArrayList<String> list = new ArrayList<String>(Arrays.asList(text.split(System.lineSeparator())));
+        ArrayList<String> filteredList = new ArrayList<String>();
+        for (String item : list) {
+            String filteredItem = item.replaceAll("[^\\w\\s]","").trim();
+            if (!filteredItem.isEmpty())
+                filteredList.add(filteredItem);
+
+        }
+        return filteredList;
     }
 
 
