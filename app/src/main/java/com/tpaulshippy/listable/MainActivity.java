@@ -19,28 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent startListNavigator = new Intent(this, ListNavigatorService.class);
-        startListNavigator.putExtra(Intent.EXTRA_TEXT,
-                "Item1" +System.lineSeparator() +
-                "Item2" + System.lineSeparator() +
-                "Item3" + System.lineSeparator() +
-                "Item4" + System.lineSeparator() +
-                "Item5");
-        startService(startListNavigator);
-
         GetIntent();
-    }
-
-    public void showNotification(View view)
-    {
-        notify("1");
-    }
-
-    private void notify(String text)
-    {
-        ListItemNotification notification = new ListItemNotification();
-        notification.notify(this, "1", text, 1);
-
     }
 
     private void GetIntent() {
