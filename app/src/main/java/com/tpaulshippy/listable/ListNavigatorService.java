@@ -39,8 +39,10 @@ public class ListNavigatorService extends Service {
 
             String text = intent.getStringExtra(Intent.EXTRA_TEXT);
 
-            _items = GetItems(text);
-            _currentIndex = 0;
+            if (!text.equals( "NEXT")) {
+                _items = GetItems(text);
+                _currentIndex = 0;
+            }
 
             if (_items.size() > 0) {
                 if (_items.size() > _currentIndex) {

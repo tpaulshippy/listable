@@ -103,7 +103,7 @@ public class ListItemNotification {
                                 context,
                                 0,
                                 new Intent(context, ListNavigatorService.class)
-                                        .putExtra(Intent.EXTRA_TEXT, message),
+                                        .putExtra(Intent.EXTRA_TEXT, "NEXT"),
                                 PendingIntent.FLAG_UPDATE_CURRENT))
 
                 // Show expanded text content on devices running Android 4.1 or
@@ -121,15 +121,6 @@ public class ListItemNotification {
                 // another way.
 
 
-                .addAction(
-                        R.drawable.ic_action_stat_share,
-                        res.getString(R.string.action_fill),
-                        PendingIntent.getService(
-                                context,
-                                0,
-                                new Intent(context, ListNavigatorService.class)
-                                        .putExtra(Intent.EXTRA_TEXT, message),
-                                PendingIntent.FLAG_UPDATE_CURRENT))
                 /*
                 .addAction(
                         R.drawable.ic_action_stat_reply,
